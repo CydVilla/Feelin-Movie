@@ -81,7 +81,7 @@ base('Table 1').update([
 
 ## Timeframes
 
-| Component                 | Priority | Estimated Time | Actual Time |  |
+| Component                 | Priority | Estimated Time | Actual Time |  | |
 | ------------------------- | :------: | :------------: | :-----------:  |  |
 | Proposal                  |    H     |      2hrs      |     2hrs       |        |
 | Airtable setup            |    H     |     .5hrs      |     .5hr       |        |
