@@ -13,7 +13,7 @@ The wireframes included below includes the layout of the site, the placement of 
 
 ## Component Hierarchy
 
-![imageAlt](https://i.imgur.com/Awtdx6W.png)
+![imageAlt](https://i.imgur.com/4PKbCFb.png)
 
 ## API and Data Sample
 
