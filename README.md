@@ -92,7 +92,7 @@ base('Table 1').update([
 | Multiple routes from HomePage   |    H     |      4hrs      |     1hrs       |               
 | Component Form.jsx        |    H     |      3hrs     |     1hr        |      
 | Implement Delete button functionality   |    H     |      3hrs      |     1hrs       |               
-| Component Nav/Header/Footer   |    H     |      3hrs     |     1hr        |         
+| Component Nav/Footer   |    H     |      3hrs     |     1hr        |         
 | Component Movie card           |    H     |      3hrs     |     1hrs       |     
 | CSS styling for HomePage  |    H     |      5hrs     |     1hrs       |   
 | CSS styling for Form      |    H     |      3hrs     |     1hrs       |        
