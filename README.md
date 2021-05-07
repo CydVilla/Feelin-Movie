@@ -9,7 +9,7 @@ Feelin-Movie is an Airtable and React project in which visitors are able to subm
 
 The wireframes included below includes the layout of the site, the placement of the form that will be utilized to allow upload if images/reviews and designs for various screensizes on mobile platforms. 
 
-![imageAlt](https://i.imgur.com/k56H9IK.png)
+![imageAlt](https://i.imgur.com/xq8cGIE.png)
 
 ## Component Hierarchy
 
