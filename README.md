@@ -56,7 +56,7 @@ base('Table 1').update([
 #### MVP
 
 - Home page displaying submission and guide for said submission.
-- Succesfully intergrating API data from Airtable.
+- Succesfully intergrating GET/POST API data from Airtable.
 - Use forms to allow the creation of reviews from Airtable.
 - Add the ability to retract a submission from Airtable.
 
@@ -77,20 +77,27 @@ base('Table 1').update([
 | May 11   | comp creation continued / CSS Components   | incomplete |
 | May 12   | CSS Components cont'd / MVP                 | incomplete |
 | May 13   | Advanced CSS/ POST MVP                     | incomplete |
-| MAy 14   | Presentations                              | incomplete |
+| May 14   | Presentations                              | incomplete |
 
 ## Timeframes
 
 | Component                 | Priority | Estimated Time | Actual Time    | 
 | ------------------------- | :------: | :------------: | :------------: |  
-| Proposal                  |    H     |      2hrs      |     2hrs       |        
-| Airtable setup            |    H     |     .5hrs      |     .5hr       |        
-| Button functionality      |    H     |      1hrs      |     1hr        |         
-| Succesful data creation   |    H     |      5hrs      |     1hrs       |               
-| Component functionality   |    H     |      10hrs     |     1hr        |         
-| Movie card render         |    H     |      10hrs     |     1hrs       |             
-| Component CSS             |    H     |      15hrs     |     1hrs       |        
-| Total                     |    H     |    43.5hrs     |     1hrs       |      
+| Proposal                  |    H     |      3hrs      |     2hrs       |        
+| Airtable setup            |    H     |     1hrs      |     .5hr       |        
+| Button functionality      |    H     |      2hrs      |     1hr        |         
+| Test movie card render    |    H     |      2hrs      |     1hrs       |               
+| Component App.js          |    H     |      4hrs     |     1hr        | 
+| Component HomePage.jsx    |    H     |      3hrs     |     1hr        |  
+| Multiple routes from HomePage   |    H     |      4hrs      |     1hrs       |               
+| Component Form.jsx        |    H     |      3hrs     |     1hr        |      
+| Implement Delete button functionality   |    H     |      3hrs      |     1hrs       |               
+| Component Nav/Header/Footer   |    H     |      3hrs     |     1hr        |         
+| Component Movie card           |    H     |      3hrs     |     1hrs       |     
+| CSS styling for HomePage  |    H     |      5hrs     |     1hrs       |   
+| CSS styling for Form      |    H     |      3hrs     |     1hrs       |        
+| Component CSS continuted  |      H   |      2hrs     |     1hrs       |          
+| Total                     |    H     |    38hrs     |     1hrs       |      
 
 ## SWOT Analysis
 
