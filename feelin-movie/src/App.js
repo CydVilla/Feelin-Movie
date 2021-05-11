@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import HomePage from './Components/HomePage/HomePage'
 import ModalForm from "./Components/Shared/Modal"
+import Header from "./Components/Shared/Header"
 import './App.css';
 
 const App = () => {
   return (
     <div className="App">
-      <ModalForm >
-      </ModalForm>
+      <Header >
+      </Header>
     </div>
   );
 }
