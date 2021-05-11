@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import HomePage from './Components/HomePage/HomePage'
+import ModalForm from "./Components/Shared/Modal"
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <HomePage></HomePage>
+      <ModalForm >
+      </ModalForm>
     </div>
   );
 }
