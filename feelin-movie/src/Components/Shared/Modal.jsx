@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "@material-ui/core";
 import Form from "./Form";
 
-const ModalForm = ({ form }) => {
+const ModalForm = ({}) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -24,7 +24,7 @@ const ModalForm = ({ form }) => {
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        <Form></Form>
+        <Form>Button</Form>
       </Modal>
     </>
   );

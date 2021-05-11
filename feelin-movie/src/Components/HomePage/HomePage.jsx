@@ -6,10 +6,14 @@ const HomePage = () => {
   useEffect(() => {
     axios.get(process.env.REACT_APP_API_KEY).then(resp => setMovies(resp.data.records));
     
-  },[]);
-  return <> {
+  }, []);
+  
+  // no fragment, create container, params/code block 
+ // keep variables seprate
+
+  return <div className="HomePage container">  {
     movies.map(movie => (
-      <a key={movie.id} href='#'>
+      <a key={movie.id}>
         <div>
         <img src={movie.fields.imageURL} />
         <span>{movie.fields.title}</span>
@@ -18,7 +22,7 @@ const HomePage = () => {
       </div>
       </a>
     ))
-  } </>;
+  } </div>;
 };
 
 export default HomePage;

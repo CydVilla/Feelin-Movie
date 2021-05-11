@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+
+// Don't import React
 
 const Form = () => {
   const [title, setTitle] = useState("");
@@ -18,11 +20,16 @@ const Form = () => {
     // console.log(process.env.REACT_APP_API_KEY);
     // console.log(process.env.REACT_APP_AIRTABLE_KEY);
     // console.log(newReview)
-    await axios
-      .post(process.env.REACT_APP_API_KEY, { fields: newReview })
-      .catch((err) => console.log(err));
+    // await axios
+    //   .post(process.env.REACT_APP_API_KEY, { fields: newReview })
+    //   .catch((err) => console.log(err));
   };
-
+  try {
+  await axios.post(process.env.REACT_APP_API_KEY, { fields: newReview });
+ } catch (err) {
+   console.error(err);
+ }
+ // trycatch 
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="title">Title: </label>
