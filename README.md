@@ -22,33 +22,18 @@ https://airtable.com/shrC4iPlFBn1Uc7ep
 Airtable is returning the data for this base as follows:
 
 ```
-base('Table 1').update([
-  {
-    "id": "rec5LJv3z0Ki3LU4j",
-    "fields": {
-      "title": "Who Framed Roger Rabbit?",
-      "year": 1988,
-      "review": "Still the greatest blend of live action and an animation ever to grace theatres.",
-      "imageURL": [
+{
+    "records": [
         {
-          "id": "attyGTpTEiAmNv26S"
-        }
-      ]
-    }
-  },
-  {
-    "id": "rechDeFIxCabkDQps",
-    "fields": {
-      "title": "Solo: A Star Wars Story",
-      "year": 2018,
-      "review": "The most underrated Star Wars film in my honest but completely true opinion.",
-      "imageURL": [
-        {
-          "id": "attINCYZJXWTWPQTv"
-        }
-      ]
-    }
-  }
+            "id": "rec5LJv3z0Ki3LU4j",
+            "fields": {
+                "imageURL": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_UY1200_CR90,0,630,1200_AL_.jpg",
+                "year": 2018,
+                "title": "Avengers: Infinity War",
+                "review": "Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet -- the evil Thanos. On a mission to collect all six Infinity Stones, Thanos plans to use the artifacts to inflict his twisted will on reality."
+            },
+            "createdTime": "2021-05-07T13:49:28.000Z"
+        },
 ```
 
 ### MVP/PostMVP
