@@ -1,32 +1,17 @@
-import { useState } from "react";
 import { Modal } from "@material-ui/core";
 import Form from "./Form";
 
-const ModalForm = ({}) => {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+const ModalForm = ({isMovieModalOpen, handleCloseMovieModal}) => {
+ 
   return (
-    <>
-      <button type="button" onClick={handleOpen}>
-        Open Modal
-      </button>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={isMovieModalOpen}
+        onClose={handleCloseMovieModal}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
-        <Form>Button</Form>
+        <Form />
       </Modal>
-    </>
   );
 };
 
