@@ -1,5 +1,9 @@
 import DeleteButton from "./DeleteButton";
 
+
+// create MovieCard component, pass in deconstructed movie prop
+// wrap contents of the first <div> into an <a> to allow the movie card to render clickable MovieCard(s)
+
 const MovieCard = ({ movie }) => {
   return (
     <div>

@@ -10,6 +10,9 @@ import Modal from "./Modal"
 
 
 // https://material-ui.com/components/app-bar/https://material-ui.com/components/app-bar/
+// create hooks, => create open/close functions => set to true false, respectively 
+// update return with created variables
+
 
 const useStyles = makeStyles((theme) => ({
   root: {

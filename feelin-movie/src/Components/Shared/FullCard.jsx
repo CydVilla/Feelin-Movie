@@ -2,6 +2,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DeleteButton from "./DeleteButton";
 
+
+// Create FullCard component 
+// Create hooks
+// axios.get API utilizing useParams method
+// Create useEffect, try/catch statement 
+// pass destructured useParams prop into FullCard function
+// Using JSX syntax wrap {movie && (...)} around movie object api data
+// add ID property to Delete Button to allow deleltion of reviews
+
 const FullCard = ({ useParams }) => {
   const [movie, setMovie] = useState("");
   const currentURL = useParams();

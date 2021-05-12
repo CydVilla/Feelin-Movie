@@ -1,6 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 
+// Create Form component 
+// create hooks for API data
+// handleSubmit function
+// try/catch axios.post() to upload data (newReview) on Form via browser to database
+
 
 const Form = () => {
   const [title, setTitle] = useState("");
