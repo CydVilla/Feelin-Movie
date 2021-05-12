@@ -7,8 +7,11 @@ import './App.css';
 const App = () => {
   return (
     <div className="App">
-      <Header >
+      <Header>
       </Header>
+      <HomePage />
+      <ModalForm>
+      </ModalForm>
     </div>
   );
 }

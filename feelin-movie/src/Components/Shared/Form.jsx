@@ -17,6 +17,11 @@ const Form = () => {
       review,
       imageURL,
     };
+    try {
+      await axios.post(process.env.REACT_APP_API_KEY, { fields: newReview });
+     } catch (err) {
+       console.error(err);
+     }
     // console.log(process.env.REACT_APP_API_KEY);
     // console.log(process.env.REACT_APP_AIRTABLE_KEY);
     // console.log(newReview)
@@ -24,12 +29,7 @@ const Form = () => {
     //   .post(process.env.REACT_APP_API_KEY, { fields: newReview })
     //   .catch((err) => console.log(err));
   };
-  try {
-  await axios.post(process.env.REACT_APP_API_KEY, { fields: newReview });
- } catch (err) {
-   console.error(err);
- }
- // trycatch 
+  
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="title">Title: </label>

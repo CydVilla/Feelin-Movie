@@ -1,10 +1,18 @@
+import DeleteButton from "./DeleteButton";
 
-
-const MovieCard = () => {
+const MovieCard = ({ movie }) => {
   return (
-    <> </>
-  )
-}
+    <div>
+      <a key={movie.id}>
+        <div>
+          <img src={movie.fields.imageURL} />
+          <span>{movie.fields.title}</span>
+          <span>{movie.fields.year}</span>
+        </div>
+      </a>
+      <DeleteButton id={movie.id} />
+    </div>
+  );
+};
 
-
-export default MovieCard
+export default MovieCard;

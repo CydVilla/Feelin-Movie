@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import MovieCard from "../Shared/MovieCard"
 
 const HomePage = () => {
   const [movies, setMovies] = useState([])
@@ -13,14 +14,7 @@ const HomePage = () => {
 
   return <div className="HomePage container">  {
     movies.map(movie => (
-      <a key={movie.id}>
-        <div>
-        <img src={movie.fields.imageURL} />
-        <span>{movie.fields.title}</span>
-        <span>{movie.fields.year}</span>
-
-      </div>
-      </a>
+      <MovieCard movie={movie} />
     ))
   } </div>;
 };
