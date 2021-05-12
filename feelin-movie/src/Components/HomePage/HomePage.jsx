@@ -14,7 +14,7 @@ const HomePage = () => {
 
   return <div className="HomePage container">  {
     movies.map(movie => (
-      <MovieCard movie={movie} />
+      <MovieCard key={movie.id} movie={movie} />
     ))
   } </div>;
 };

@@ -1,19 +1,29 @@
-import React, { Component } from 'react'
-import HomePage from './Components/HomePage/HomePage'
-import ModalForm from "./Components/Shared/Modal"
-import Header from "./Components/Shared/Header"
-import './App.css';
+import React, { Component } from "react";
+import HomePage from "./Components/HomePage/HomePage";
+import Header from "./Components/Shared/Header";
+import MovieCard from "./Components/Shared/MovieCard"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./App.css";
+import { Movie } from "@material-ui/icons";
+import FullCard from "./Components/Shared/FullCard"
 
 const App = () => {
   return (
-    <div className="App">
-      <Header>
-      </Header>
+    <Router>
+      <div className="App">
+      <Header></Header>
+        <Switch>
+          <Route path='/movie/:id' >
+            <FullCard>hi</FullCard>
+          </Route>
+          <Route path='/' >
       <HomePage />
-      <ModalForm>
-      </ModalForm>
-    </div>
+          </Route>
+         
+        </Switch>
+      </div>
+      </Router>
   );
-}
+};
 
 export default App;

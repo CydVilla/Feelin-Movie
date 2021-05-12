@@ -3,7 +3,7 @@ import DeleteButton from "./DeleteButton";
 const MovieCard = ({ movie }) => {
   return (
     <div>
-      <a key={movie.id}>
+      <a href={`/movie/${movie.id}`}>
         <div>
           <img src={movie.fields.imageURL} />
           <span>{movie.fields.title}</span>
