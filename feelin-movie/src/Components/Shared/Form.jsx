@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 
-// Don't import React
 
 const Form = () => {
   const [title, setTitle] = useState("");
@@ -9,7 +8,7 @@ const Form = () => {
   const [review, setReview] = useState("");
   const [imageURL, setImageURL] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newReview = {
       title,
@@ -18,16 +17,11 @@ const Form = () => {
       imageURL,
     };
     try {
-      await axios.post(process.env.REACT_APP_API_KEY, { fields: newReview });
+       axios.post(process.env.REACT_APP_API_KEY, { fields: newReview });
      } catch (err) {
        console.error(err);
      }
-    // console.log(process.env.REACT_APP_API_KEY);
-    // console.log(process.env.REACT_APP_AIRTABLE_KEY);
-    // console.log(newReview)
-    // await axios
-    //   .post(process.env.REACT_APP_API_KEY, { fields: newReview })
-    //   .catch((err) => console.log(err));
+  
   };
   
   return (

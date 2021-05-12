@@ -2,23 +2,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DeleteButton from "./DeleteButton";
 
-
-
 const FullCard = ({ useParams }) => {
   const [movie, setMovie] = useState("");
-  const test = useParams()
-    console.log(test)
-  useEffect ( async () => {
-    const currentURL = window.location.href.split("/");
-    console.log(currentURL[currentURL.length - 1]);
+  const currentURL = useParams();
+  useEffect( () => {
     try {
-      const resp = await axios.get(
+      const resp = axios.get(
         `${process.env.REACT_APP_AIRTABLE_URL}` +
-          `/${currentURL[currentURL.length - 1]}` +
+          `/${currentURL}` +
           "?api_key=" +
           `${process.env.REACT_APP_AIRTABLE_KEY}`
       );
-      setMovie(resp.data)
+      setMovie(resp.data);
     } catch (err) {
       console.log(err);
     }

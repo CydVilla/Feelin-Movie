@@ -2,7 +2,7 @@ import React from "react";
 import HomePage from "./Components/HomePage/HomePage";
 import Header from "./Components/Shared/Header";
 import MovieCard from "./Components/Shared/MovieCard";
-import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, useParams } from "react-router-dom";
 import "./App.css";
 import { Movie } from "@material-ui/icons";
 import FullCard from "./Components/Shared/FullCard";
