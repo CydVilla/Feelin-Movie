@@ -1,28 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 import HomePage from "./Components/HomePage/HomePage";
 import Header from "./Components/Shared/Header";
-import MovieCard from "./Components/Shared/MovieCard"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import MovieCard from "./Components/Shared/MovieCard";
+import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
 import "./App.css";
 import { Movie } from "@material-ui/icons";
-import FullCard from "./Components/Shared/FullCard"
+import FullCard from "./Components/Shared/FullCard";
 
 const App = () => {
   return (
     <Router>
       <div className="App">
-      <Header></Header>
+        <Header></Header>
         <Switch>
-          <Route path='/movie/:id' >
-            <FullCard>hi</FullCard>
+          <Route path="/movie/:id">
+            <FullCard useParams={useParams}>hi
+            </FullCard>
           </Route>
-          <Route path='/' >
-      <HomePage />
+          <Route path="/">
+            <HomePage />
           </Route>
-         
         </Switch>
       </div>
-      </Router>
+    </Router>
   );
 };
 

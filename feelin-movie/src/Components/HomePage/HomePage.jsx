@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "../Shared/MovieCard"
 
+
 const HomePage = () => {
   const [movies, setMovies] = useState([])
   useEffect(() => {
@@ -9,8 +10,7 @@ const HomePage = () => {
     
   }, []);
   
-  // no fragment, create container, params/code block 
- // keep variables seprate
+
 
   return <div className="HomePage container">  {
     movies.map(movie => (
@@ -20,3 +20,7 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+
+// react router dom move to index
