@@ -1,24 +1,20 @@
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import { baseURL, config } from "../../services";
 
 // create Delete component
 // try/catch axios delete functionatlity
 // pass ID prop to DeleteButton
 // create onClick property to contained button 
-const DeleteButton = ({ id }) => {
-  const deleteMovie = () => {
+const DeleteButton = ({ id, setToggle }) => {
+  const deleteMovie = async () => {
     console.log("hello!");
-    try {
-      axios.delete(
-        `${process.env.REACT_APP_AIRTABLE_URL}` +
-          `/${id}` +
-          "?api_key=" +
-          `${process.env.REACT_APP_AIRTABLE_KEY}`
+      const movieURL = `${baseURL}/${id}`
+      await axios.delete(movieURL, config
       );
-    } catch (err) {
-      console.log(err);
-    }
-  };
+      setToggle((curr) => !curr)
+  }
+  
   return (
     <Button onClick={deleteMovie} variant="contained">
       Delete

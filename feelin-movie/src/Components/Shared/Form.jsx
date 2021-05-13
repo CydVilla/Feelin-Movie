@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {baseURL, config} from "../../services"
 import axios from "axios";
 
 // Create Form component 
@@ -7,13 +8,13 @@ import axios from "axios";
 // try/catch axios.post() to upload data (newReview) on Form via browser to database
 
 
-const Form = () => {
+const Form = ({toggle, setToggle}) => {
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [review, setReview] = useState("");
   const [imageURL, setImageURL] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newReview = {
       title,
@@ -21,12 +22,8 @@ const Form = () => {
       review,
       imageURL,
     };
-    try {
-       axios.post(process.env.REACT_APP_API_KEY, { fields: newReview });
-     } catch (err) {
-       console.error(err);
-     }
-  
+    await axios.post(baseURL, { fields: newReview }, config);
+    setToggle((curr) => !curr)  
   };
   
   return (

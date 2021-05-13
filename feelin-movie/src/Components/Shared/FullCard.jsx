@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import DeleteButton from "./DeleteButton";
+import { useParams } from "react-router-dom"
+import {baseURL, config} from "../../services"
+
 
 
 // Create FullCard component 
@@ -11,22 +14,21 @@ import DeleteButton from "./DeleteButton";
 // Using JSX syntax wrap {movie && (...)} around movie object api data
 // add ID property to Delete Button to allow deleltion of reviews
 
-const FullCard = ({ useParams }) => {
-  const [movie, setMovie] = useState("");
+const FullCard = ({ }) => {
   const currentURL = useParams();
-  useEffect( () => {
-    try {
-      const resp = axios.get(
-        `${process.env.REACT_APP_AIRTABLE_URL}` +
-          `/${currentURL}` +
-          "?api_key=" +
-          `${process.env.REACT_APP_AIRTABLE_KEY}`
-      );
-      setMovie(resp.data);
-    } catch (err) {
-      console.log(err);
+  const [movies, setMovies] = useState([])
+  useEffect(() => {
+    const getData = async () => {
+      const resp = await axios.get(baseURL, config)
+      setMovies(resp.data.records)
     }
+    getData()
   }, []);
+  const movie = movies.find((movie) => {
+    return (
+      movie.id === currentURL.id
+    )
+  })
   return (
     <div>
       {" "}

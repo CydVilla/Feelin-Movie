@@ -4,8 +4,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+// import IconButton from "@material-ui/core/IconButton";
+// import MenuIcon from "@material-ui/icons/Menu";
 import Modal from "./Modal"
 
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Header = () => {
+const Header = ({toggle, setToggle}) => {
   const classes = useStyles();
   const [isMovieModalOpen, setIsMovieModalOpen] = useState(false);
 
@@ -46,7 +46,7 @@ const Header = () => {
               Feelin' Movie
             </Typography>
           <Button onClick={handleOpenMovieModal} color="inherit">Add Review</Button>
-          <Modal handleCloseMovieModal={handleCloseMovieModal} isMovieModalOpen={ isMovieModalOpen}/>
+          <Modal toggle={toggle} setToggle={setToggle } handleCloseMovieModal={handleCloseMovieModal} isMovieModalOpen={ isMovieModalOpen}/>
           </Toolbar>
         </AppBar>
       </div>
