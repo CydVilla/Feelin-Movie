@@ -3,6 +3,7 @@ import axios from "axios";
 import DeleteButton from "./DeleteButton";
 import { useParams } from "react-router-dom"
 import {baseURL, config} from "../../services"
+import "./FullCard.css";
 
 
 
@@ -31,14 +32,13 @@ const FullCard = ({ }) => {
   })
   return (
     <div>
-      {" "}
       {movie && (
         <div>
           <div>
-            <img src={movie.fields.imageURL} />
-            <span>{movie.fields.title}</span>
-            <span>{movie.fields.year}</span>
-            <span>{movie.fields.review}</span>
+            <img  src={movie.fields.imageURL} />
+            <p >{movie.fields.title}</p>
+            <p >{movie.fields.year}</p>
+            <p>{movie.fields.review}</p>
           </div>
           <DeleteButton id={movie.id} />
         </div>

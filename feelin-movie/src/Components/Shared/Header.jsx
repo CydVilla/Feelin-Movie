@@ -40,7 +40,7 @@ const Header = ({toggle, setToggle}) => {
   };
   return (
       <div className={classes.root}>
-        <AppBar position="fixed">
+        <AppBar position="sticky">
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
               Feelin' Movie
