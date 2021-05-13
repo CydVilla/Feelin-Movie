@@ -3,6 +3,7 @@ import axios from "axios";
 import {baseURL, config} from "../../services"
 import MovieCard from "../Shared/MovieCard";
 import Grid from '@material-ui/core/Grid';
+import "./HomePage.css";
 
 // set HomePage comp, create hooks
 const HomePage = ({toggle, setToggle}) => {
@@ -27,7 +28,7 @@ const HomePage = ({toggle, setToggle}) => {
   // map through movie data
   // key property necessitates use of unique key aka movie.id
   return (
-    <div className="HomePage container">
+    <div className="HomePage-container">
       <Grid container direction="row"
   justify="space-evenly"
   alignItems="center">

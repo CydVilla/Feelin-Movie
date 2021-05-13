@@ -31,11 +31,12 @@ const FullCard = ({ }) => {
     )
   })
   return (
+    <body>
     <div>
       {movie && (
         <div>
           <div>
-            <img  src={movie.fields.imageURL} />
+            <img src={movie.fields.imageURL} />
             <p >{movie.fields.title}</p>
             <p >{movie.fields.year}</p>
             <p>{movie.fields.review}</p>
@@ -43,7 +44,8 @@ const FullCard = ({ }) => {
           <DeleteButton id={movie.id} />
         </div>
       )}
-    </div>
+      </div>
+      </body>
   );
 };
 
