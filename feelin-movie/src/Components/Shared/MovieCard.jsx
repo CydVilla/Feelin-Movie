@@ -1,5 +1,7 @@
 import DeleteButton from "./DeleteButton";
 import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import './MovieCard.css';
 
 
 // create MovieCard component, pass in deconstructed movie prop
@@ -7,18 +9,18 @@ import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie, setToggle }) => {
   return (
-    <div>
-      {/* <a href={`/movie/${movie.id}`}> */}
-      <div>
-        <Link to={`/movie/${movie.id}`}>
-          <img src={movie.fields.imageURL} />
-          <span>{movie.fields.title}</span>
-          <span>{movie.fields.year}</span>
+    <Grid item sm={3}>
+    <Grid container direction="column" justify="center" alignItems="center">
+        <Grid item>
+          <Link to={`/movie/${movie.id}`}>
+            <img className='images' src={movie.fields.imageURL} />
+            <p>{movie.fields.title}</p>
+            <p>{movie.fields.year}</p>
           </Link>
-        </div>
-      {/* </a> */}
-      <DeleteButton setToggle={setToggle} id={movie.id} />
-    </div>
+          <DeleteButton setToggle={setToggle} id={movie.id} />
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

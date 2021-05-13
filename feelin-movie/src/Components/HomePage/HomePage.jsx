@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import {baseURL, config} from "../../services"
 import MovieCard from "../Shared/MovieCard";
+import Grid from '@material-ui/core/Grid';
 
 // set HomePage comp, create hooks
 const HomePage = ({toggle, setToggle}) => {
@@ -27,9 +28,13 @@ const HomePage = ({toggle, setToggle}) => {
   // key property necessitates use of unique key aka movie.id
   return (
     <div className="HomePage container">
-      {movies.map((movie) => (
+      <Grid container direction="row"
+  justify="space-evenly"
+  alignItems="center">
+        {movies.map((movie) => (
         <MovieCard setToggle={setToggle} key={movie.id} movie={movie} />
       ))}
+        </Grid>
     </div>
   );
 };

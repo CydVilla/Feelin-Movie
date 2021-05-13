@@ -23,7 +23,6 @@ const App = () => {
           <FullCard setToggle={setToggle}>
             </FullCard>
           </Route>
-         
         </Switch>
       </div>
   );
