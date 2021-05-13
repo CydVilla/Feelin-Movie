@@ -6,13 +6,14 @@ import {Switch, Route, useParams } from "react-router-dom";
 import "./App.css";
 // import { Movie } from "@material-ui/icons";
 import FullCard from "./Components/Shared/FullCard";
-
-
+import { ThemeProvider } from "@material-ui/styles";
+import theme from "./Components/Shared/theme"
 // create react app
 // use BrowseRouter hml format, render FullCard useParams pathname
 const App = () => {
   const [toggle, setToggle] = useState(false)
   return (
+    <ThemeProvider theme={theme}>
       <div className="App">
         <Header toggle={toggle} setToggle={setToggle}> </Header>
       <Switch>
@@ -25,6 +26,7 @@ const App = () => {
           </Route>
         </Switch>
       </div>
+      </ThemeProvider>
   );
 };
 

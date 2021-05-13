@@ -31,21 +31,19 @@ const FullCard = ({ }) => {
     )
   })
   return (
-    <body>
-    <div>
+    <div className='body'>
       {movie && (
         <div>
           <div>
             <img src={movie.fields.imageURL} />
-            <p >{movie.fields.title}</p>
-            <p >{movie.fields.year}</p>
+            <p>{movie.fields.title}</p>
+            <p>{movie.fields.year}</p>
             <p>{movie.fields.review}</p>
           </div>
           <DeleteButton id={movie.id} />
         </div>
       )}
-      </div>
-      </body>
+    </div>
   );
 };
 
