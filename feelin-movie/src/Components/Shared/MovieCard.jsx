@@ -1,4 +1,3 @@
-import DeleteButton from "./DeleteButton";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import './MovieCard.css';
@@ -9,18 +8,15 @@ import './MovieCard.css';
 
 const MovieCard = ({ movie, setToggle }) => {
   return (
-    <Grid item sm={3}>
+    <Grid item sm={6} lg={4}>
     <Grid container direction="column" justify="center" alignItems="center">
-        <Grid item>
           <Link to={`/movie/${movie.id}`}>
             <img className='images' src={movie.fields.imageURL} />
             <p>{movie.fields.title}</p>
             <p>{movie.fields.year}</p>
           </Link>
-          <DeleteButton setToggle={setToggle} id={movie.id} />
         </Grid>
       </Grid>
-    </Grid>
   );
 };
 
