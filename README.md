@@ -57,32 +57,32 @@ Airtable is returning the data for this base as follows:
 
 | Day      | Deliverable                                | Status   |
 | -------- | ------------------------------------------ | -------- |
-| May 7-9  | Proposal Approval / Airtable Setup          | incomplete |
-| May 10   | Component Creation / Get, Set, Delete Data | incomplete |
-| May 11   | comp creation continued / CSS Components   | incomplete |
-| May 12   | CSS Components cont'd / MVP                 | incomplete |
-| May 13   | Advanced CSS/ POST MVP                     | incomplete |
-| May 14   | Presentations                              | incomplete |
+| May 7-9  | Proposal Approval / Airtable Setup          | complete |
+| May 10   | Component Creation / Get, Set, Delete Data | complete |
+| May 11   | comp creation continued / CSS Components   | complete |
+| May 12   | CSS Components cont'd / MVP                 | complete |
+| May 13   | Advanced CSS/ POST MVP                     | complete |
+| May 14   | Presentations                              | complete |
 
 ## Timeframes
 
 | Component                 | Priority | Estimated Time | Actual Time    | 
 | ------------------------- | :------: | :------------: | :------------: |  
-| Proposal                  |    H     |      3hrs      |     2hrs       |        
+| Proposal                  |    H     |      3hrs      |     4hrs       |        
 | Airtable setup            |    H     |     1hrs      |     .5hr       |        
 | Button functionality      |    H     |      2hrs      |     1hr        |         
 | Test movie card render    |    H     |      2hrs      |     1hrs       |               
-| Component App.js          |    H     |      4hrs     |     1hr        | 
-| Component HomePage.jsx    |    H     |      3hrs     |     1hr        |  
-| Multiple routes from HomePage   |    H     |      4hrs      |     1hrs       |               
-| Component Form.jsx        |    H     |      3hrs     |     1hr        |      
-| Implement Delete button functionality   |    H     |      3hrs      |     1hrs       |               
-| Component Nav/Footer   |    H     |      3hrs     |     1hr        |         
-| Component Movie card           |    H     |      3hrs     |     1hrs       |     
-| CSS styling for HomePage  |    H     |      5hrs     |     1hrs       |   
-| CSS styling for Form      |    H     |      3hrs     |     1hrs       |        
-| Component CSS continuted  |      H   |      2hrs     |     1hrs       |          
-| Total                     |    H     |    38hrs     |     1hrs       |      
+| Component App.js          |    H     |      4hrs     |     3hr        | 
+| Component HomePage.jsx    |    H     |      3hrs     |     4hr        |  
+| Multiple routes from HomePage   |    H     |      4hrs      |     5hrs       |               
+| Component Form.jsx        |    H     |      3hrs     |     2hr        |      
+| Implement Delete button functionality   |    H     |      3hrs      |     3hrs       |               
+| Component Nav/Footer   |    H     |      3hrs     |     2hr        |         
+| Component Movie card           |    H     |      3hrs     |     2hrs       |     
+| CSS styling for HomePage  |    H     |      5hrs     |     7hrs       |   
+| CSS styling for Form      |    H     |      3hrs     |     5hrs       |        
+| Component CSS continuted  |      H   |      2hrs     |     3hrs       |          
+| Total                     |    H     |    38hrs     |     42hrs       |      
 
 ## SWOT Analysis
 
@@ -93,6 +93,7 @@ I know the project I want to build and how to go about taking the steps to build
 ### Weaknesses:
 
 Class components are a bit of enigma to me, something I will have to address by taking time to research and looking through my resources. 
+
 ### Opportunities:
 
 This project represents my trials and tribulations as a react developer and how I have overcomed them to keep pushing on in the endless pursuit of knowledge.
