@@ -100,4 +100,4 @@ This project represents my trials and tribulations as a react developer and how 
 
 ### Threats:
 
-When I have a new idea I tend to try to implent or fiddle with it, it has the risk of taking up crucial development time so I will stay the course and implement new ideas after I meet MVP. 
+When I have a new idea I tend to try to implement or fiddle with it for too long, it has the risk of taking up crucial development time so I will stay the course and implement new ideas after I meet MVP. 
