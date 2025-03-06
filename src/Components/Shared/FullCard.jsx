@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import DeleteButton from "./DeleteButton";
 import { useParams } from "react-router-dom";

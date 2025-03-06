@@ -1,4 +1,5 @@
 import {useState} from "react";
+import React from "react";
 import HomePage from "./Components/HomePage/HomePage";
 import Header from "./Components/Shared/Header";
 // import MovieCard from "./Components/Shared/MovieCard";
