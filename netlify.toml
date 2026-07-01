@@ -1,4 +1,8 @@
 [build]
+  # Explicitly pin the base to the repo root. This overrides any stale
+  # "base directory" value configured in the Netlify UI (e.g. "feelin-movie"),
+  # which otherwise fails config parsing with "Base directory does not exist".
+  base = "."
   command = "npm run build"
   publish = "build"
 
