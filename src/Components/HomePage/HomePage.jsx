@@ -23,7 +23,7 @@ const HomePage = ({ toggle }) => {
     } catch (err) {
       console.error(err);
       setMovies([]);
-      setError("We couldn't load your reviews right now.");
+      setError("Failed to load your reviews. Please check your connection and try again.");
     } finally {
       setIsLoading(false);
     }
@@ -62,9 +62,7 @@ const HomePage = ({ toggle }) => {
         ) : error ? (
           <Grid item xs={12} className="HomePage__feedback">
             <Typography variant="h6">We hit a snag.</Typography>
-            <Typography variant="body2" color="textSecondary">
-              {error} Check your connection and try again.
-            </Typography>
+            <Typography variant="body2" color="textSecondary">{error}</Typography>
             <Button variant="outlined" color="primary" onClick={fetchMovies}>
               Retry
             </Button>

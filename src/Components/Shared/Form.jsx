@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form = ({ setToggle, handleCloseMovieModal = () => {} }) => {
+const Form = ({ onReviewCreated, handleCloseMovieModal = () => {} }) => {
   const classes = useStyles();
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
@@ -63,7 +63,9 @@ const Form = ({ setToggle, handleCloseMovieModal = () => {} }) => {
     try {
       setIsSubmitting(true);
       await axios.post(baseURL, { fields: newReview }, config);
-      setToggle((curr) => !curr);
+      if (onReviewCreated) {
+        onReviewCreated();
+      }
       setTitle("");
       setYear("");
       setReview("");

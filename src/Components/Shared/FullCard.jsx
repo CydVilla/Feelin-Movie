@@ -125,7 +125,7 @@ const FullCard = ({ setToggle }) => {
     } catch (err) {
       console.error(err);
       setMovies([]);
-      setError("Please try again in a moment.");
+      setError("Failed to load this review. Please check your connection and try again.");
     } finally {
       setIsLoading(false);
     }
