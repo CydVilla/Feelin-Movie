@@ -18,11 +18,13 @@ const ModalForm = ({ isMovieModalOpen, handleCloseMovieModal, toggle, setToggle 
       aria-describedby="create-review-description"
     >
       <Fade in={isMovieModalOpen}>
-        <Form
-          toggle={toggle}
-          setToggle={setToggle}
-          handleCloseMovieModal={handleCloseMovieModal}
-        />
+        <div>
+          <Form
+            toggle={toggle}
+            setToggle={setToggle}
+            handleCloseMovieModal={handleCloseMovieModal}
+          />
+        </div>
       </Fade>
     </Modal>
   );

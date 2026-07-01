@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import DeleteButton from "./DeleteButton";
 import { useParams } from "react-router-dom";
@@ -13,6 +13,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import Paper from "@material-ui/core/Paper";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   shell: {
@@ -113,20 +114,26 @@ const FullCard = ({ setToggle }) => {
   const currentURL = useParams();
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        setIsLoading(true);
-        const resp = await axios.get(baseURL, config);
-        setMovies(resp.data.records);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getData();
+  const [error, setError] = useState("");
+
+  const fetchMovies = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      setError("");
+      const resp = await axios.get(baseURL, config);
+      setMovies(resp.data.records);
+    } catch (err) {
+      console.error(err);
+      setMovies([]);
+      setError("We couldn't load this review right now.");
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchMovies();
+  }, [fetchMovies]);
   const movie = movies.find((movie) => {
     return movie.id === currentURL.id;
   });
@@ -145,6 +152,16 @@ const FullCard = ({ setToggle }) => {
               Fetching the full review...
             </Typography>
           </Paper>
+        ) : error ? (
+          <Paper elevation={0} className={classes.emptyState}>
+            <Typography variant="h6">We couldn't load that review.</Typography>
+            <Typography variant="body2">
+              {error} Please try again in a moment.
+            </Typography>
+            <Button variant="outlined" color="primary" onClick={fetchMovies}>
+              Retry
+            </Button>
+          </Paper>
         ) : movie ? (
           <Card className={classes.card} elevation={0}>
             <CardHeader
@@ -161,6 +178,7 @@ const FullCard = ({ setToggle }) => {
               className={classes.media}
               image={movie.fields.imageURL || posterFallback}
               title="Movie artwork"
+              aria-label={`${movie.fields.title || "Movie"} artwork`}
             />
             <CardContent className={classes.content}>
               <Typography className={classes.sectionLabel} component="span">
