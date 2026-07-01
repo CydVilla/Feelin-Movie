@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = ({ toggle, setToggle }) => {
+const Header = ({ setToggle }) => {
   const classes = useStyles();
   const [isMovieModalOpen, setIsMovieModalOpen] = useState(false);
 
@@ -86,8 +86,7 @@ const Header = ({ toggle, setToggle }) => {
             Add review
           </Button>
           <Modal
-            toggle={toggle}
-            setToggle={setToggle}
+            onReviewCreated={() => setToggle((curr) => !curr)}
             handleCloseMovieModal={handleCloseMovieModal}
             isMovieModalOpen={isMovieModalOpen}
           />

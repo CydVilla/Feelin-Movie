@@ -24,9 +24,11 @@ const MovieCard = ({ movie }) => {
         <CardActionArea component={Link} to={`/movie/${movie.id}`} className="MovieCard__action">
           <div className="MovieCard__mediaWrapper">
             <CardMedia
+              component="img"
               className="MovieCard__media"
               image={imageURL || posterFallback}
               title={title}
+              alt={`${title} poster`}
             />
             <div className="MovieCard__meta">
               {year && <span className="MovieCard__meta-year">{year}</span>}

@@ -6,7 +6,7 @@ import Form from "./Form";
 // pass in created deconstructed props from return
 // add <Form> to toggle Form on browser on the header 
 
-const ModalForm = ({ isMovieModalOpen, handleCloseMovieModal, toggle, setToggle }) => {
+const ModalForm = ({ isMovieModalOpen, handleCloseMovieModal, onReviewCreated }) => {
   return (
     <Modal
       open={isMovieModalOpen}
@@ -18,11 +18,12 @@ const ModalForm = ({ isMovieModalOpen, handleCloseMovieModal, toggle, setToggle 
       aria-describedby="create-review-description"
     >
       <Fade in={isMovieModalOpen}>
-        <Form
-          toggle={toggle}
-          setToggle={setToggle}
-          handleCloseMovieModal={handleCloseMovieModal}
-        />
+        <div>
+          <Form
+            onReviewCreated={onReviewCreated}
+            handleCloseMovieModal={handleCloseMovieModal}
+          />
+        </div>
       </Fade>
     </Modal>
   );

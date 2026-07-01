@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form = ({ toggle, setToggle, handleCloseMovieModal }) => {
+const Form = ({ onReviewCreated, handleCloseMovieModal = () => {} }) => {
   const classes = useStyles();
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
@@ -53,23 +53,24 @@ const Form = ({ toggle, setToggle, handleCloseMovieModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const parsedYear = parseInt(year, 10);
     const newReview = {
       title,
-      year,
+      year: Number.isNaN(parsedYear) ? "" : parsedYear,
       review,
       imageURL,
     };
     try {
       setIsSubmitting(true);
       await axios.post(baseURL, { fields: newReview }, config);
-      setToggle((curr) => !curr);
+      if (onReviewCreated) {
+        onReviewCreated();
+      }
       setTitle("");
       setYear("");
       setReview("");
       setImageURL("");
-      if (handleCloseMovieModal) {
-        handleCloseMovieModal();
-      }
+      handleCloseMovieModal();
     } catch (err) {
       console.error(err);
     } finally {

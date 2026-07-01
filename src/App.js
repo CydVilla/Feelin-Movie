@@ -16,7 +16,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className="App">
-        <Header toggle={toggle} setToggle={setToggle} />
+      <Header setToggle={setToggle} />
         <main className="App__content">
           <Switch>
             <Route exact path="/">
