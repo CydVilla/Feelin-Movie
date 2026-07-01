@@ -1,0 +1,20 @@
+[build]
+  # Explicitly pin the base to the repo root. This overrides any stale
+  # "base directory" value configured in the Netlify UI (e.g. "feelin-movie"),
+  # which otherwise fails config parsing with "Base directory does not exist".
+  base = "."
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  # react-scripts 3 relies on the legacy OpenSSL provider on modern Node.
+  # The build script already sets NODE_OPTIONS, this pins a compatible runtime.
+  NODE_VERSION = "18"
+  CI = "false"
+
+# Single Page App fallback so client-side routes like /movie/:id resolve
+# correctly on hard refresh / direct navigation.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

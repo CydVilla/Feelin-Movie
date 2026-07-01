@@ -8,7 +8,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
 import "./HomePage.css";
 
-// set HomePage comp, create hooks
 const HomePage = ({ toggle }) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -33,53 +32,65 @@ const HomePage = ({ toggle }) => {
     fetchMovies();
   }, [fetchMovies, toggle]);
 
-  // create container for CSS styling later
-  // map through movie data
-  // key property necessitates use of unique key aka movie.id
   return (
     <div className="HomePage">
       <section className="HomePage__hero">
-        <Typography variant="h3" component="h1">
-          Your personal film journal
+        <span className="HomePage__eyebrow">
+          <span className="HomePage__dot HomePage__dot--green" />
+          <span className="HomePage__dot HomePage__dot--blue" />
+          <span className="HomePage__dot HomePage__dot--orange" />
+          The social film journal
+        </span>
+        <Typography variant="h3" component="h1" className="HomePage__hero-title">
+          Track films you’ve watched.<br />Save those you want to see.
         </Typography>
         <Typography variant="body1" className="HomePage__hero-subtitle">
-          Collect your favourite scenes, share sharp takes, and keep your watchlist in one beautiful place.
+          Tell your friends what’s good. Keep every sharp take, favourite scene, and
+          rainy-day watchlist pick in one beautiful place.
         </Typography>
       </section>
-      <Grid
-        container
-        spacing={4}
-        alignItems="stretch"
-        className="HomePage__grid"
-      >
-        {isLoading ? (
-          <Grid item xs={12} className="HomePage__feedback">
-            <CircularProgress color="secondary" />
-            <Typography variant="body2" color="textSecondary">
-              Loading your cinematic picks...
+
+      <section className="HomePage__section">
+        <div className="HomePage__section-head">
+          <Typography variant="overline" className="HomePage__section-label">
+            Recent reviews
+          </Typography>
+          {!isLoading && !error && movies.length > 0 && (
+            <Typography variant="body2" className="HomePage__count">
+              {movies.length} {movies.length === 1 ? "film" : "films"} logged
             </Typography>
-          </Grid>
-        ) : error ? (
-          <Grid item xs={12} className="HomePage__feedback">
-            <Typography variant="h6">We hit a snag.</Typography>
-            <Typography variant="body2" color="textSecondary">{error}</Typography>
-            <Button variant="outlined" color="primary" onClick={fetchMovies}>
-              Retry
-            </Button>
-          </Grid>
-        ) : movies.length ? (
-          movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))
-        ) : (
-          <Grid item xs={12} className="HomePage__feedback">
-            <Typography variant="h6">Nothing here yet — start the conversation.</Typography>
-            <Typography variant="body2" color="textSecondary">
-              Use “Add review” to post a film you loved (or didn’t) and keep your friends in the loop.
-            </Typography>
-          </Grid>
-        )}
-      </Grid>
+          )}
+        </div>
+
+        <Grid container spacing={3} alignItems="stretch" className="HomePage__grid">
+          {isLoading ? (
+            <Grid item xs={12} className="HomePage__feedback">
+              <CircularProgress color="primary" />
+              <Typography variant="body2" color="textSecondary">
+                Loading your cinematic picks...
+              </Typography>
+            </Grid>
+          ) : error ? (
+            <Grid item xs={12} className="HomePage__feedback">
+              <Typography variant="h6">We hit a snag.</Typography>
+              <Typography variant="body2" color="textSecondary">{error}</Typography>
+              <Button variant="contained" color="primary" onClick={fetchMovies}>
+                Retry
+              </Button>
+            </Grid>
+          ) : movies.length ? (
+            movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+          ) : (
+            <Grid item xs={12} className="HomePage__feedback">
+              <Typography variant="h6">Nothing logged yet — start the reel.</Typography>
+              <Typography variant="body2" color="textSecondary">
+                Use “Log a film” to post something you loved (or didn’t) and keep your
+                friends in the loop.
+              </Typography>
+            </Grid>
+          )}
+        </Grid>
+      </section>
     </div>
   );
 };

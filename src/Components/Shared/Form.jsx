@@ -12,16 +12,37 @@ const useStyles = makeStyles((theme) => ({
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "min(520px, 90vw)",
-    background: "linear-gradient(145deg, rgba(15, 23, 42, 0.92), rgba(17, 24, 39, 0.88))",
-    border: "1px solid rgba(148, 163, 184, 0.18)",
-    borderRadius: 24,
-    padding: theme.spacing(4.5, 5),
-    boxShadow: "0 42px 80px rgba(15, 23, 42, 0.45)",
+    width: "min(520px, 92vw)",
+    maxHeight: "90vh",
+    overflowY: "auto",
+    background: "linear-gradient(160deg, #2c3440 0%, #1c252c 100%)",
+    border: "1px solid rgba(120, 140, 160, 0.18)",
+    borderRadius: 14,
+    padding: theme.spacing(4, 4.5),
+    boxShadow: "0 42px 90px rgba(0, 0, 0, 0.6)",
     display: "flex",
     flexDirection: "column",
-    gap: theme.spacing(3.5),
+    gap: theme.spacing(3),
+    outline: "none",
   },
+  header: {
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1.25),
+  },
+  dots: {
+    display: "inline-flex",
+    flexShrink: 0,
+  },
+  dot: {
+    width: 11,
+    height: 11,
+    borderRadius: "50%",
+    display: "inline-block",
+  },
+  dotGreen: { backgroundColor: theme.accents.green, marginRight: -4 },
+  dotBlue: { backgroundColor: theme.accents.blue, marginRight: -4 },
+  dotOrange: { backgroundColor: theme.accents.orange },
   form: {
     display: "flex",
     flexDirection: "column",
@@ -29,12 +50,13 @@ const useStyles = makeStyles((theme) => ({
   },
   fields: {
     display: "grid",
-    gap: theme.spacing(2.5),
+    gap: theme.spacing(2.25),
   },
   helper: {
     color: theme.palette.text.secondary,
     maxWidth: 420,
     lineHeight: 1.6,
+    marginTop: theme.spacing(0.5),
   },
   actions: {
     display: "flex",
@@ -82,9 +104,16 @@ const Form = ({ onReviewCreated, handleCloseMovieModal = () => {} }) => {
     <Paper className={classes.paper} elevation={0}>
       <form onSubmit={handleSubmit} className={classes.form}>
         <div>
-          <Typography id="create-review-title" variant="h5" component="h2">
-            Create a review
-          </Typography>
+          <div className={classes.header}>
+            <span className={classes.dots} aria-hidden="true">
+              <span className={`${classes.dot} ${classes.dotGreen}`} />
+              <span className={`${classes.dot} ${classes.dotBlue}`} />
+              <span className={`${classes.dot} ${classes.dotOrange}`} />
+            </span>
+            <Typography id="create-review-title" variant="h5" component="h2">
+              Log a film
+            </Typography>
+          </div>
           <Typography id="create-review-description" variant="body2" className={classes.helper}>
             Share a quick snapshot of what made this film unforgettable.
           </Typography>
@@ -136,7 +165,7 @@ const Form = ({ onReviewCreated, handleCloseMovieModal = () => {} }) => {
             Cancel
           </Button>
           <Button type="submit" color="primary" variant="contained" disabled={isSubmitting}>
-            {isSubmitting ? "Saving" : "Submit review"}
+            {isSubmitting ? "Saving" : "Post review"}
           </Button>
         </div>
       </form>

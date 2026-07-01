@@ -8,21 +8,17 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import "./MovieCard.css";
 
-
-// create MovieCard component, pass in deconstructed movie prop
-// wrap contents of the first <div> into an <a> to allow the movie card to render clickable MovieCard(s)
-
 const MovieCard = ({ movie }) => {
   const { title, year, review, imageURL } = movie.fields;
-  const excerpt = review && review.length > 120 ? `${review.slice(0, 120)}…` : review;
+  const excerpt = review && review.length > 110 ? `${review.slice(0, 110)}…` : review;
   const posterFallback =
     "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80";
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3}>
+    <Grid item xs={6} sm={4} md={3}>
       <Card className="MovieCard" elevation={0}>
         <CardActionArea component={Link} to={`/movie/${movie.id}`} className="MovieCard__action">
-          <div className="MovieCard__mediaWrapper">
+          <div className="MovieCard__poster">
             <CardMedia
               component="img"
               className="MovieCard__media"
@@ -30,17 +26,19 @@ const MovieCard = ({ movie }) => {
               title={title}
               alt={`${title} poster`}
             />
-            <div className="MovieCard__meta">
-              {year && <span className="MovieCard__meta-year">{year}</span>}
-              <span className="MovieCard__meta-cta">Read review</span>
+            <div className="MovieCard__overlay">
+              <span className="MovieCard__cta">Read review</span>
             </div>
           </div>
           <CardContent className="MovieCard__content">
-            <Typography variant="h6" className="MovieCard__title">
-              {title}
-            </Typography>
+            <div className="MovieCard__titleRow">
+              <Typography variant="subtitle1" className="MovieCard__title">
+                {title}
+              </Typography>
+              {year && <span className="MovieCard__year">{year}</span>}
+            </div>
             {excerpt && (
-              <Typography variant="body2" className="MovieCard__excerpt" color="textSecondary">
+              <Typography variant="body2" className="MovieCard__excerpt">
                 {excerpt}
               </Typography>
             )}

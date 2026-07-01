@@ -1,6 +1,15 @@
 :root {
   color-scheme: dark;
-  background-color: #0f172a;
+  background-color: #14181c;
+  --lb-green: #00e054;
+  --lb-blue: #40bcf4;
+  --lb-orange: #ff8000;
+  --lb-bg: #14181c;
+  --lb-surface: #1c252c;
+  --lb-surface-raised: #2c3440;
+  --lb-border: rgba(120, 140, 160, 0.16);
+  --lb-text: #f4f6f8;
+  --lb-text-dim: #9ab;
 }
 
 * {
@@ -9,25 +18,30 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', 'Graphik', 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.25), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.18), transparent 50%),
-    #0f172a;
+  background: var(--lb-bg);
   min-height: 100vh;
-  color: #e2e8f0;
+  color: var(--lb-text);
 }
 
+/* Subtle cinematic vignette so the flat charcoal keeps depth without stealing
+   the show — this is our small departure from a straight Letterboxd clone. */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(800px circle at 20% 10%, rgba(99, 102, 241, 0.12), transparent),
-    radial-gradient(800px circle at 80% 15%, rgba(34, 211, 238, 0.12), transparent);
-  opacity: 0.9;
-  z-index: -1;
+  background:
+    radial-gradient(900px circle at 50% -10%, rgba(64, 188, 244, 0.10), transparent 60%),
+    radial-gradient(700px circle at 100% 0%, rgba(0, 224, 84, 0.06), transparent 55%);
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -36,4 +50,8 @@ a {
 
 code {
   font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+::selection {
+  background: rgba(0, 224, 84, 0.3);
 }
