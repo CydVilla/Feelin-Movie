@@ -17,6 +17,8 @@ test("renders the app shell", () => {
   );
 
   expect(screen.getByText(/feelin' movie/i)).toBeInTheDocument();
-  expect(screen.getByRole("heading", { name: /your personal film journal/i })).toBeInTheDocument();
+  expect(
+    screen.getByRole("heading", { name: /track films you.ve watched/i })
+  ).toBeInTheDocument();
   expect(screen.getByText(/loading your cinematic picks/i)).toBeInTheDocument();
 });

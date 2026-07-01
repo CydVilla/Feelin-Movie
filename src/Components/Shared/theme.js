@@ -1,20 +1,28 @@
 import { createTheme } from "@material-ui/core/styles";
 
-const primaryMain = "#6366f1";
-const secondaryMain = "#22d3ee";
-const backgroundDefault = "#0f172a";
-const backgroundPaper = "#121c36";
-const textPrimary = "#e2e8f0";
-const textSecondary = "#94a3b8";
+// Letterboxd-inspired charcoal palette with the signature tri-colour accents
+// (green / blue / orange), kept distinct with a teal-leaning green so the app
+// retains its own identity rather than being a pixel copy.
+const lbGreen = "#00e054";
+const lbBlue = "#40bcf4";
+const lbOrange = "#ff8000";
 
-export default createTheme({
+const backgroundDefault = "#14181c";
+const backgroundPaper = "#1c252c";
+const surfaceRaised = "#2c3440";
+const textPrimary = "#f4f6f8";
+const textSecondary = "#9ab";
+
+const theme = createTheme({
   palette: {
     type: "dark",
     primary: {
-      main: primaryMain,
+      main: lbGreen,
+      contrastText: "#0b0f12",
     },
     secondary: {
-      main: secondaryMain,
+      main: lbBlue,
+      contrastText: "#0b0f12",
     },
     background: {
       default: backgroundDefault,
@@ -24,63 +32,92 @@ export default createTheme({
       primary: textPrimary,
       secondary: textSecondary,
     },
+    divider: "rgba(120, 140, 160, 0.16)",
   },
   typography: {
-    fontFamily: "'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif",
+    fontFamily: "'Inter', 'Graphik', 'Helvetica Neue', 'Arial', sans-serif",
     h1: {
-      fontWeight: 700,
+      fontWeight: 800,
       letterSpacing: "-0.02em",
     },
     h2: {
-      fontWeight: 700,
+      fontWeight: 800,
       letterSpacing: "-0.02em",
     },
     h3: {
-      fontWeight: 600,
+      fontWeight: 700,
       letterSpacing: "-0.015em",
     },
     h4: {
-      fontWeight: 600,
+      fontWeight: 700,
+      letterSpacing: "-0.01em",
+    },
+    h5: {
+      fontWeight: 700,
+    },
+    h6: {
+      fontWeight: 700,
     },
     button: {
-      fontWeight: 600,
-      textTransform: "none",
+      fontWeight: 700,
+      textTransform: "uppercase",
+      letterSpacing: "0.06em",
     },
     body1: {
-      lineHeight: 1.6,
+      lineHeight: 1.65,
     },
     body2: {
       lineHeight: 1.6,
     },
   },
   shape: {
-    borderRadius: 16,
+    borderRadius: 8,
   },
   overrides: {
     MuiButton: {
       root: {
-        borderRadius: 999,
-        paddingInline: "1.5rem",
-        paddingBlock: "0.65rem",
+        borderRadius: 6,
+        paddingInline: "1.35rem",
+        paddingBlock: "0.55rem",
       },
       containedPrimary: {
-        boxShadow: "0 12px 24px rgba(99, 102, 241, 0.35)",
-        '&:hover': {
-          boxShadow: "0 16px 32px rgba(99, 102, 241, 0.45)",
+        color: "#0b0f12",
+        boxShadow: "none",
+        "&:hover": {
+          backgroundColor: "#1fe968",
+          boxShadow: "0 8px 20px rgba(0, 224, 84, 0.28)",
         },
+      },
+      outlinedSecondary: {
+        borderColor: "rgba(64, 188, 244, 0.5)",
       },
     },
     MuiAppBar: {
       colorPrimary: {
-        backgroundColor: "transparent",
-        backdropFilter: "blur(12px)",
-        borderBottom: "1px solid rgba(148, 163, 184, 0.15)",
+        backgroundColor: surfaceRaised,
+        color: textPrimary,
       },
     },
     MuiPaper: {
       rounded: {
-        borderRadius: 20,
+        borderRadius: 10,
+      },
+    },
+    MuiOutlinedInput: {
+      root: {
+        backgroundColor: "rgba(20, 24, 28, 0.6)",
+        "& $notchedOutline": {
+          borderColor: "rgba(120, 140, 160, 0.28)",
+        },
+        "&:hover $notchedOutline": {
+          borderColor: "rgba(64, 188, 244, 0.6)",
+        },
       },
     },
   },
 });
+
+// Expose the tri-colour accents for components that want the signature motif.
+theme.accents = { green: lbGreen, blue: lbBlue, orange: lbOrange, surfaceRaised };
+
+export default theme;
