@@ -1,0 +1,16 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  # react-scripts 3 relies on the legacy OpenSSL provider on modern Node.
+  # The build script already sets NODE_OPTIONS, this pins a compatible runtime.
+  NODE_VERSION = "18"
+  CI = "false"
+
+# Single Page App fallback so client-side routes like /movie/:id resolve
+# correctly on hard refresh / direct navigation.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
