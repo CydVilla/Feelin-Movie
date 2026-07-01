@@ -125,7 +125,7 @@ const FullCard = ({ setToggle }) => {
     } catch (err) {
       console.error(err);
       setMovies([]);
-      setError("We couldn't load this review right now.");
+      setError("Please try again in a moment.");
     } finally {
       setIsLoading(false);
     }
@@ -155,9 +155,7 @@ const FullCard = ({ setToggle }) => {
         ) : error ? (
           <Paper elevation={0} className={classes.emptyState}>
             <Typography variant="h6">We couldn't load that review.</Typography>
-            <Typography variant="body2">
-              {error} Please try again in a moment.
-            </Typography>
+            <Typography variant="body2">{error}</Typography>
             <Button variant="outlined" color="primary" onClick={fetchMovies}>
               Retry
             </Button>
