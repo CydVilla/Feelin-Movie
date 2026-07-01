@@ -1,9 +1,9 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import { baseURL, config } from "../../services";
 import { useHistory } from "react-router-dom";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 
 
 // create Delete component
@@ -12,25 +12,34 @@ import { useHistory } from "react-router-dom";
 // create onClick property to contained button 
 
 const DeleteButton = ({ id, setToggle, page }) => {
-  let history = useHistory()
+  const history = useHistory();
+  const [isDeleting, setIsDeleting] = useState(false);
   const deleteMovie = async () => {
-    console.log("hello!");
-      const movieURL = `${baseURL}/${id}`
-      await axios.delete(movieURL, config
-    ); if (page == 'FullCard') {
-        history.push('/')
+    const movieURL = `${baseURL}/${id}`;
+    try {
+      setIsDeleting(true);
+      await axios.delete(movieURL, config);
+      if (page === "FullCard") {
+        history.push("/");
       }
-      setToggle((curr) => !curr)
-  }
-  
+      setToggle((curr) => !curr);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
   return (
-    <Grid container justify='center'>
-      <Grid item>
-        <Button onClick={deleteMovie} variant="contained">
-          Delete
+    <Button
+      onClick={deleteMovie}
+      variant="outlined"
+      color="secondary"
+      startIcon={<DeleteOutlineIcon />}
+      disabled={isDeleting}
+    >
+      {isDeleting ? "Removing" : "Delete"}
     </Button>
-    </Grid>
-    </Grid>
   );
 };
 export default DeleteButton;
