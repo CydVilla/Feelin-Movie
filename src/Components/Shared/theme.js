@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 
 const primaryMain = "#6366f1";
 const secondaryMain = "#22d3ee";
@@ -7,7 +7,7 @@ const backgroundPaper = "#121c36";
 const textPrimary = "#e2e8f0";
 const textSecondary = "#94a3b8";
 
-export default createMuiTheme({
+export default createTheme({
   palette: {
     type: "dark",
     primary: {
