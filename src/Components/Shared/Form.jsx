@@ -53,9 +53,10 @@ const Form = ({ setToggle, handleCloseMovieModal = () => {} }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const parsedYear = parseInt(year, 10);
     const newReview = {
       title,
-      year,
+      year: Number.isNaN(parsedYear) ? "" : parsedYear,
       review,
       imageURL,
     };
@@ -67,9 +68,7 @@ const Form = ({ setToggle, handleCloseMovieModal = () => {} }) => {
       setYear("");
       setReview("");
       setImageURL("");
-      if (handleCloseMovieModal) {
-        handleCloseMovieModal();
-      }
+      handleCloseMovieModal();
     } catch (err) {
       console.error(err);
     } finally {
@@ -103,8 +102,7 @@ const Form = ({ setToggle, handleCloseMovieModal = () => {} }) => {
             value={year}
             onChange={(e) => {
               const nextValue = e.target.value;
-              const parsedYear = parseInt(nextValue, 10);
-              setYear(nextValue === "" || Number.isNaN(parsedYear) ? "" : parsedYear);
+              setYear(nextValue === "" ? "" : nextValue);
             }}
             variant="outlined"
             color="primary"
