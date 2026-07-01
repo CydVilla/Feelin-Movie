@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form = ({ setToggle, handleCloseMovieModal }) => {
+const Form = ({ setToggle, handleCloseMovieModal = () => {} }) => {
   const classes = useStyles();
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
@@ -101,7 +101,11 @@ const Form = ({ setToggle, handleCloseMovieModal }) => {
           <TextField
             label="Year"
             value={year}
-            onChange={(e) => setYear(e.target.value === "" ? "" : Number(e.target.value))}
+            onChange={(e) => {
+              const nextValue = e.target.value;
+              const parsedYear = parseInt(nextValue, 10);
+              setYear(nextValue === "" || Number.isNaN(parsedYear) ? "" : parsedYear);
+            }}
             variant="outlined"
             color="primary"
             type="number"
@@ -131,12 +135,7 @@ const Form = ({ setToggle, handleCloseMovieModal }) => {
           />
         </div>
         <div className={classes.actions}>
-          <Button
-            type="button"
-            onClick={() => handleCloseMovieModal && handleCloseMovieModal()}
-            color="default"
-            disabled={isSubmitting}
-          >
+          <Button type="button" onClick={handleCloseMovieModal} color="default" disabled={isSubmitting}>
             Cancel
           </Button>
           <Button type="submit" color="primary" variant="contained" disabled={isSubmitting}>

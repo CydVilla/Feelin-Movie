@@ -32,13 +32,6 @@ const HomePage = ({ toggle }) => {
   useEffect(() => {
     fetchMovies();
   }, [fetchMovies, toggle]);
-    // try {
-      // throw 'WHOOPS'
-      // initalize GET request utilizing airtable
-      // .then((resp) => setMovies(resp.data.records));
-    // } catch (err) {
-    //   console.error(err);
-    // }
 
   // create container for CSS styling later
   // map through movie data
@@ -94,8 +87,3 @@ const HomePage = ({ toggle }) => {
 };
 
 export default HomePage;
-
-// importing and passing props
-// import browser router to index
-// destructure currentURL out of params
-// USE Link component 

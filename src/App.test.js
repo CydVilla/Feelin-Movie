@@ -1,5 +1,5 @@
 jest.mock("axios", () => ({
-  get: jest.fn(() => Promise.resolve({ data: { records: [] } })),
+  get: jest.fn(() => new Promise(() => {})),
   post: jest.fn(),
   delete: jest.fn(),
 }));
@@ -7,21 +7,16 @@ jest.mock("axios", () => ({
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { act } from "react-dom/test-utils";
 import App from "./App";
 
-test("renders the app shell", async () => {
+test("renders the app shell", () => {
   render(
     <MemoryRouter>
       <App />
     </MemoryRouter>
   );
 
-  await act(async () => {
-    await Promise.resolve();
-  });
-
   expect(screen.getByText(/feelin' movie/i)).toBeInTheDocument();
   expect(screen.getByRole("heading", { name: /your personal film journal/i })).toBeInTheDocument();
-  expect(screen.getByText(/nothing here yet/i)).toBeInTheDocument();
+  expect(screen.getByText(/loading your cinematic picks/i)).toBeInTheDocument();
 });
