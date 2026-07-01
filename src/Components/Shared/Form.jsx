@@ -100,10 +100,7 @@ const Form = ({ setToggle, handleCloseMovieModal = () => {} }) => {
           <TextField
             label="Year"
             value={year}
-            onChange={(e) => {
-              const nextValue = e.target.value;
-              setYear(nextValue === "" ? "" : nextValue);
-            }}
+            onChange={(e) => setYear(e.target.value)}
             variant="outlined"
             color="primary"
             type="number"
